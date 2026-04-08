@@ -1,0 +1,31 @@
+id,name,default_code,type,list_price,standard_price,description_sale,sale_ok,purchase_ok
+product_g28_001,Placas PCB personalizables,EL-001,product,15.00,8.00,Placa de circuito impreso personalizable. Ideal para prototipos y proyectos electronicos a medida.,1,1
+product_g28_002,Arduino Uno R3,EL-002,product,25.00,14.00,Microcontrolador Arduino Uno R3 con ATmega328P. Compatible con shields y librerias estandar.,1,1
+product_g28_003,Raspberry Pi 4 Model B,EL-003,product,45.00,28.00,Computadora de placa unica Raspberry Pi 4 Model B. Procesador ARM Cortex-A72 de 64 bits.,1,1
+product_g28_004,Modulo ESP32 Wi-Fi BT,EL-004,product,8.00,4.50,Modulo ESP32 con Wi-Fi 802.11 b/g/n y Bluetooth 4.2 integrados. Ideal para IoT.,1,1
+product_g28_005,Pantalla OLED 0.96 I2C,EL-005,product,4.50,2.20,Pantalla OLED de 0.96 pulgadas con interfaz I2C. Resolucion 128x64 pixeles. Bajo consumo energetico.,1,1
+product_g28_006,Sensor ultrasonico HC-SR04,EL-006,product,3.00,1.50,Sensor de distancia ultrasonico HC-SR04. Rango de 2 cm a 400 cm. Alimentacion 5V.,1,1
+product_g28_007,Motor paso a paso NEMA 17,EL-007,product,12.00,6.50,Motor paso a paso NEMA 17 bipolar. 1.8 grados por paso. Ideal para impresoras 3D y CNC.,1,1
+product_g28_008,Driver A4988 para stepper,EL-008,product,2.50,1.20,Driver A4988 para motores paso a paso. Microstepping 1/16. Corriente maxima 2A.,1,1
+product_g28_009,Modulo rele 5V 4 canales,EL-009,product,5.00,2.80,Modulo de 4 reles de 5V con optoacopladores. Soporta cargas de hasta 10A a 250VAC.,1,1
+product_g28_010,Sensor temperatura DHT22,EL-010,product,4.00,2.00,Sensor de temperatura y humedad DHT22. Rango -40 a +80 grados Celsius. Precision 0.5C.,1,1
+product_g28_011,Convertidor DC-DC Buck LM2596,EL-011,product,3.50,1.80,Modulo convertidor DC-DC reductor LM2596. Entrada 4-40V. Salida ajustable 1.25-37V. 3A.,1,1
+product_g28_012,Bateria LiPo 3.7V 2000mAh,EL-012,product,8.00,4.50,Bateria de polimero de litio 3.7V 2000mAh. Ideal para proyectos portatiles y robotica.,1,1
+product_g28_013,Cargador TP4056 con proteccion,EL-013,product,2.00,0.90,Modulo cargador TP4056 con proteccion de sobredescarga y cortocircuito para baterias LiPo.,1,1
+product_g28_014,Modulo GPS NEO-6M,EL-014,product,12.00,6.50,Modulo GPS NEO-6M con antena ceramica. Precision de posicion 2.5m CEP. Interfaz UART.,1,1
+product_g28_015,Camara OV2640 para ESP32-CAM,EL-015,product,6.00,3.20,Modulo de camara OV2640 de 2MP compatible con ESP32-CAM. Soporte para JPEG y YUV.,1,1
+product_g28_016,Matriz LED 8x8 MAX7219,EL-016,product,5.50,2.80,Modulo de matriz LED 8x8 controlado por MAX7219 con interfaz SPI. Cascadeable.,1,1
+product_g28_017,Sensor de gas MQ-2,EL-017,product,3.50,1.80,Sensor de gas MQ-2. Detecta GLP - propano - metano - hidrogeno y humo. Salida analogica y digital.,1,1
+product_g28_018,Servomotor SG90 9g,EL-018,product,3.00,1.50,Servomotor SG90 de 9 gramos. Rotacion 0-180 grados. Torque 1.8 kg/cm. Ideal para robotica.,1,1
+product_g28_019,Modulo lector RFID RC522,EL-019,product,4.00,2.00,Modulo lector/escritor RFID RC522 con tarjeta y llavero incluidos. Frecuencia 13.56 MHz. SPI.,1,1
+product_g28_020,Fuente de alimentacion ATX 600W,EL-020,product,55.00,32.00,Fuente de poder ATX de 600W. Salidas 12V - 5V - 3.3V. Certificacion 80 Plus.,1,1
+product_g28_021,Osciloscopio digital DSO138,EL-021,product,35.00,20.00,Osciloscopio digital DSO138 de 200kHz de ancho de banda. Display TFT 2.4 pulgadas.,1,1
+product_g28_022,Multimetro digital DT-9205A,EL-022,product,18.00,9.50,Multimetro digital DT-9205A. Medicion de voltaje DC/AC - corriente - resistencia y capacitancia.,1,1
+product_g28_023,Soldador de punta fina 60W,EL-023,product,22.00,12.00,Soldador de punta fina de 60W con temperatura ajustable. Ideal para componentes SMD.,1,1
+product_g28_024,Estano sin plomo 0.8mm,EL-024,product,6.00,3.00,Estano para soldadura sin plomo de 0.8mm de diametro. Aleacion Sn96.5/Ag3/Cu0.5. 100g.,1,1
+product_g28_025,Pasta termoconductora MX-4,EL-025,product,8.50,4.50,Pasta termoconductora Arctic MX-4 de 4g. Conductividad 8.5 W/mK. Para disipadores de calor.,1,1
+product_g28_026,Disipador aluminio 40x40x11mm,EL-026,product,2.50,1.20,Disipador de calor de aluminio 40x40x11mm. Compatible con reguladores y drivers de potencia.,1,1
+product_g28_027,Modulo CAN Bus MCP2515,EL-027,product,7.00,3.80,Modulo CAN Bus con controlador MCP2515 y transceiver TJA1050. Interfaz SPI. 1 Mbps.,1,1
+product_g28_028,Sensor corriente ACS712 30A,EL-028,product,4.50,2.30,Sensor de corriente ACS712 de hasta 30A. Salida analogica lineal. Aislamiento galvanico.,1,1
+product_g28_029,Tira LED RGB WS2812B 1m,EL-029,product,9.00,5.00,Tira LED RGB WS2812B de 1 metro con 60 LEDs direccionables individualmente. 5V.,1,1
+product_g28_030,Caja de proyecto ABS 115x90mm,EL-030,product,5.00,2.50,Caja de proyecto en ABS de 115x90x55mm. Con soportes para placa y tapa con tornillos.,1,1

@@ -6,7 +6,7 @@
 
 - [ ] Video Demostrativo
 
-- [ ] Archivos de Datos
+- [X] Archivos de Datos
 
 # Requisitos según el criterio de calificación
 
@@ -24,7 +24,7 @@
 
 # Requisitos según la metodología
 
-- [ ] Datos maestros (productos, clientes y proveedores)
+- [X] Datos maestros (productos, clientes y proveedores)
 
 - [ ] Cadena de suministros, Ventas y Cotizaciones
 
