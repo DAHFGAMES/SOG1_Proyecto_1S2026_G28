@@ -1,0 +1,11 @@
+id,name,company_type,is_company,customer_rank,supplier_rank,email,phone,street,city,country_id/name
+supplier_g28_001,Electrónica Total S.A.,company,TRUE,0,1,ventas@electronicatotal.gt,+502 2220-3344,9a Avenida 11-62 Zona 1,Ciudad de Guatemala,Guatemala
+supplier_g28_002,Componentes y Más,company,TRUE,0,1,pedidos@componentesymas.com,+502 2334-5566,18 Calle 6-52 Zona 1,Ciudad de Guatemala,Guatemala
+supplier_g28_003,Microchip Distribuidores,company,TRUE,0,1,distribuciones@microchipgt.com,+502 2475-8899,4a Calle 7-53 Zona 9,Ciudad de Guatemala,Guatemala
+supplier_g28_004,Arduino Supply Guatemala,company,TRUE,0,1,supply@arduinogt.com,+502 5566-7788,Boulevard Vista Hermosa Zona 15,Ciudad de Guatemala,Guatemala
+supplier_g28_005,TechComponents International,company,TRUE,0,1,sales@techcompintl.com,+502 2289-4411,World Trade Center Zona 4,Ciudad de Guatemala,Guatemala
+supplier_g28_006,SensoresGT,company,TRUE,0,1,info@sensoresgt.com,+502 7845-2233,Avenida Reforma 6-64 Zona 9,Ciudad de Guatemala,Guatemala
+supplier_g28_007,PowerTech Distribuciones,company,TRUE,0,1,distribuciones@powertech.gt,+502 2290-1122,23 Avenida 11-20 Zona 11,Ciudad de Guatemala,Guatemala
+supplier_g28_008,PCB Factory Guatemala,company,TRUE,0,1,fabricacion@pcbfactory.gt,+502 7831-6644,Parque Industrial Zona 12,Ciudad de Guatemala,Guatemala
+supplier_g28_009,Módulos y Sensores S.A.,company,TRUE,0,1,ventas@modulosysensores.gt,+502 5890-3344,Calzada Roosevelt Zona 7,Ciudad de Guatemala,Guatemala
+supplier_g28_010,GlobalElec Import,company,TRUE,0,1,import@globalelec.gt,+502 2422-9900,Aeropuerto La Aurora Zona 13,Ciudad de Guatemala,Guatemala

@@ -6,28 +6,28 @@
 
 - [ ] Video Demostrativo
 
-- [ ] Archivos de Datos
+- [X] Archivos de Datos
 
 # Requisitos según el criterio de calificación
 
-- [ ] Carga de Productos Carga_Masiva/Manual
+- [X] Carga de Productos Carga_Masiva/Manual
 
-- [ ] Carga de Clientes Carga_Masiva/Manual
+- [X] Carga de Clientes Carga_Masiva/Manual
 
-- [ ] Carga de Proveedores Carga_Masiva/Manual
+- [X] Carga de Proveedores Carga_Masiva/Manual
 
-- [ ] Realizar compras a proveedores
+- [X] Realizar compras a proveedores
 
-- [ ] Realizar Cotizaciones
+- [X] Realizar Cotizaciones
 
-- [ ] Enviar correos desde el CRM
+- [X] Enviar correos desde el CRM
 
 # Requisitos según la metodología
 
-- [ ] Datos maestros (productos, clientes y proveedores)
+- [X] Datos maestros (productos, clientes y proveedores)
 
-- [ ] Cadena de suministros, Ventas y Cotizaciones
+- [X] Cadena de suministros, Ventas y Cotizaciones
 
-- [ ] Módulo Avanzado de Odoo - Modulo de compras
+- [X] Módulo Avanzado de Odoo - Modulo de compras
 
-- [ ] CRM con plantillas de correo
+- [X] CRM con plantillas de correo
