@@ -78,55 +78,55 @@ Dentro de la vista de Odoo, debemos instalar los siguientes módulos:
 - CRM
 - Invoicing
 
-![alt text](image.png)
+![alt text](./img/image.png)
 
 ### Carga masiva de Productos
 
 Seleccionamos el módulo de Inventory.
 
-![alt text](image-1.png)
+![alt text](./img/image-1.png)
 
 Luego en la parte superior seleccionamos Products.
 
-![alt text](image-2.png)
+![alt text](./img/image-2.png)
 
 En la tuerca que está a la derecha del buscador, seleccionamos Import records.
 
-![alt text](image-3.png)
+![alt text](./img/image-3.png)
 
 Y presionamos Upload File.
 
-![alt text](image-4.png)
+![alt text](./img/image-4.png)
 
 Luego solo mapeamos los campos correctamente y presionamos Import.
 
-![alt text](image-5.png)
+![alt text](./img/image-5.png)
 
 Verificamos que los productos se carguen correctamente.
 
-![alt text](image-6.png)
+![alt text](./img/image-6.png)
 
 ### Carga masiva de Clientes y Proveedores
 
 Seleccionamos el módulo de Contacts.
 
-![alt text](image-7.png)
+![alt text](./img/image-7.png)
 
 Y repetimos el mismo proceso que con los productos.
 
-![alt text](image-8.png)
+![alt text](./img/image-8.png)
 
 Debemos subir los archivos CSV de clientes y proveedores.
 
-![alt text](image-9.png)
+![alt text](./img/image-9.png)
 
 Verificamos que los clientes y proveedores se carguen correctamente.
 
-![alt text](image-10.png)
+![alt text](./img/image-10.png)
 
 Verificamos que ambos archivos se hayan cargado correctamente.
 
-![alt text](image-11.png)
+![alt text](./img/image-11.png)
 
 ## CRM y ERP
 
@@ -135,6 +135,131 @@ Verificamos que ambos archivos se hayan cargado correctamente.
 - Settings → Accounting — activa moneda (GTQ o USD)
 - Inventory → Configuration → Warehouses — verifica que exista al menos 1 almacén
 
+![alt text](./img/image-12.png)
+
 ### CRM
-- CRM → Configuration → Stages — configura etapas del pipeline (ej: Nuevo → Contactado → Propuesta → Ganado)
+- CRM — configura etapas del pipeline (ej: Nuevo → Contactado → Propuesta → Ganado)
 - CRM → Configuration → Sales Teams — crea un equipo de ventas
+
+![alt text](./img/image-13.png)
+
+## Compras a proveedores
+
+- Ve a Purchase → Orders → Purchase Orders → New
+- Selecciona proveedor (de los importados)
+- En "Products": agrega productos, cantidad y precio
+- Clic Confirm Order → genera una orden de compra oficial
+- Cuando llegue la mercancía: Receive Products → valida el ingreso al almacén
+- Print → genera la factura del proveedor
+
+![alt text](./img/image-14.png)
+
+![alt text](./img/image-15.png)
+
+![alt text](./img/image-16.png)
+
+## Cotizaciones de Productos 
+
+- Ve a Sales → Orders → Quotations → New
+- Selecciona cliente
+- Agrega productos en "Products"
+- Clic Send by Email → envía al cliente / Confirm → convierte en orden de venta
+- Clic en Create Invoice → genera la factura del cliente
+- El flujo completo: Cotización → Orden de Venta → Entrega → Factura
+
+![alt text](./img/image-17.png)
+![alt text](./img/image-18.png)
+![alt text](./img/image-19.png)
+![alt text](./img/image-20.png)
+![alt text](./img/image-21.png)
+
+## Correos Electrónicos
+
+>**Nota:** Para enviar correos electrónicos, es necesario configurar un servidor de salida SMTP activando el modo desarrollador en **"Settings → General Settings → Activate the developer mode"**.
+
+![alt text](./img/image-22.png)
+
+>**Nota:** Necesitamos Actividar la verificación en 2 pasos del correo que vayamos a utliizar y generar una contraseña de aplicación.
+
+![alt text](./img/image-23.png)
+
+Para crear la contraseña de aplicación accedemos al siguiente link:
+
+https://myaccount.google.com/apppasswords
+
+![alt text](./img/image-24.png)
+
+**Configurar servidor de salida SMTP**
+
+- Settings → Technical → Email → Outgoing Mail Servers → New
+- Ejemplo con Gmail:
+
+| Campo | Valor |
+|-------|-------|
+| Name | Gmail G28 (cualquier nombre descriptivo) |
+| FROM Filtering | Déjalo vacío |
+| Priority | 10 (valor por defecto, menor = mayor prioridad) |
+| Authenticate with | Username |
+| Connection Encryption | TLS (STARTTLS) |
+| SMTP Server | smtp.gmail.com |
+| SMTP Port | 587 (se autocompleta al elegir STARTTLS) |
+| Username | tu-correo@gmail.com |
+| Password | La clave de 16 caracteres del App Password |
+| Debugging | Déjalo desactivado |
+| SSL Certificate | No aplica con STARTTLS |
+
+Si todo funciona bien debemos ver un mensaje de éxito a la izquierda:
+
+![alt text](./img/image-25.png)
+
+Vamos a crear una plantilla de correo electrónico para las cotizaciones:
+
+- Crear una plantilla de correo
+  - Ve a Settings → Technical → Email Templates
+  - Clic New y llena:
+
+| Campo | Valor |
+|-------|-------|
+| Name | Cotización de productos - G28 |
+| Applies To | Lead/Opportunity (para CRM) |
+| Subject | Cotización de productos electrónicos - {{object.name}} |
+| Body | (ver abajo) |
+
+**Cuerpo de la plantilla (Body):**
+
+```
+Estimado/a
+
+Gracias por su interés en nuestros productos electrónicos.
+
+Adjuntamos la cotización solicitada con los detalles de precios y disponibilidad.
+
+Para cualquier consulta, no dude en contactarnos.
+
+Atentamente,
+Equipo de Ventas - G28 Electronics
+```
+
+![alt text](./img/image-26.png)
+
+Enviamos el correo desde un Lead/Opportunity:
+
+> **Nota:** Tienes que tener a un usuario con correo electrónico configurado.
+
+![alt text](./img/image-27.png)
+
+- Ve a CRM
+- Abre o crea una oportunidad (clic New → ponle nombre y asigna un cliente)
+- En el chatter (parte derecha), clic en Send message
+- Aparece el compositor de correo → clic en el ícono "<->" y luego "Load a Template"
+- Selecciona la plantilla que creaste → se autocompleta el asunto y cuerpo
+- Verifica el destinatario (debe tener email el contacto)
+- Clic Send
+
+![alt text](./img/image-28.png)
+
+![alt text](./img/image-29.png)
+
+![alt text](./img/image-30.png)
+
+![alt text](./img/image-31.png)
