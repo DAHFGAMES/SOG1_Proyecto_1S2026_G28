@@ -1,0 +1,11 @@
+id,name,company_type,is_company,customer_rank,supplier_rank,email,phone,street,city,country_id/name
+customer_g28_001,TecnoServicios Guatemala S.A.,company,TRUE,1,0,contacto@tecnoservicios.gt,+502 2234-5678,6a Avenida 12-01 Zona 1,Ciudad de Guatemala,Guatemala
+customer_g28_002,Laboratorios USAC,company,TRUE,1,0,labs@usac.edu.gt,+502 2418-8000,Ciudad Universitaria Zona 12,Ciudad de Guatemala,Guatemala
+customer_g28_003,Maker Space GTM,company,TRUE,1,0,info@makerspacegtm.com,+502 5544-3322,4a Calle 5-50 Zona 4,Ciudad de Guatemala,Guatemala
+customer_g28_004,Robótica Educativa S.A.,company,TRUE,1,0,ventas@roboticaeducativa.gt,+502 2289-1122,Bulevar Los Próceres 15-50 Zona 10,Ciudad de Guatemala,Guatemala
+customer_g28_005,InnovaBot Guatemala,company,TRUE,1,0,hola@innovabot.gt,+502 5678-9900,12 Calle 2-04 Zona 9,Ciudad de Guatemala,Guatemala
+customer_g28_006,Fabricaciones Electrónicas del Sur,company,TRUE,1,0,pedidos@faeletsur.com,+502 7832-1100,3a Avenida 8-22,Escuintla,Guatemala
+customer_g28_007,Academia STEM GT,company,TRUE,1,0,academia@stemgt.edu,+502 2381-4455,14 Avenida 14-32 Zona 10,Ciudad de Guatemala,Guatemala
+customer_g28_008,Prototipo Labs,company,TRUE,1,0,labs@prototipo.gt,+502 5912-3344,Calle Mariscal 4-32 Zona 11,Ciudad de Guatemala,Guatemala
+customer_g28_009,DigiSoluciones S.A.,company,TRUE,1,0,info@digisoluciones.gt,+502 2269-7788,Centro Comercial Oakland Zona 10,Ciudad de Guatemala,Guatemala
+customer_g28_010,TechHub Guatemala,company,TRUE,1,0,contacto@techhub.gt,+502 5321-8877,8a Calle 18-12 Zona 14,Ciudad de Guatemala,Guatemala
