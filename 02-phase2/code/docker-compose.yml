@@ -37,9 +37,29 @@ services:
     networks:
       - g28_net
 
+  metabase:
+    image: metabase/metabase:latest
+    container_name: g28_metabase
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3001:3000"
+    environment:
+      # Metabase usa H2 interno por defecto. Aquí solo se conecta
+      # a Odoo DB como fuente de datos (a través de la UI).
+      MB_DB_FILE: /metabase-data/metabase.db
+      JAVA_TIMEZONE: America/Guatemala
+    volumes:
+      - g28_metabase_data:/metabase-data
+    networks:
+      - g28_net
+
 volumes:
   g28_pgdata:
   g28_odoo_data:
+  g28_metabase_data:
 
 networks:
   g28_net:
