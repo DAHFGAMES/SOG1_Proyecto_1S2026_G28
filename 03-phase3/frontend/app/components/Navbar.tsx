@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BarChart3,
-  Cpu,
   Home,
   Package,
   ReceiptText,
@@ -15,10 +15,10 @@ import { useCart } from "./CartContext";
 
 const LINKS = [
   { href: "/", label: "Inicio", icon: Home },
-  { href: "/products", label: "Catálogo", icon: Package },
-  { href: "/sales", label: "Órdenes", icon: ReceiptText },
+  { href: "/products", label: "Productos", icon: Package },
+  { href: "/sales", label: "Mis pedidos", icon: ReceiptText },
   { href: "/reports", label: "Reportes", icon: BarChart3 },
-  { href: "/register", label: "Registro", icon: UserPlus },
+  { href: "/register", label: "Cuenta", icon: UserPlus },
 ];
 
 export default function Navbar() {
@@ -26,13 +26,24 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-30 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
+    <header className="no-print sticky top-0 z-30 border-b border-orange-100 bg-white/85 backdrop-blur">
+      <div className="h-1 w-full brand-gradient" />
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
-            <Cpu className="h-4 w-4" />
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-bold tracking-tight text-zinc-900"
+        >
+          <Image
+            src="/branding/logo_circle.png"
+            alt="MayaCode Electronics"
+            width={40}
+            height={40}
+            priority
+            className="h-10 w-10 rounded-full shadow-sm"
+          />
+          <span className="hidden text-lg sm:inline">
+            MayaCode <span className="brand-text-gradient">Electronics</span>
           </span>
-          G28 Electronics
         </Link>
 
         <ul className="hidden md:flex items-center gap-1 text-sm">
@@ -43,10 +54,10 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors ${
                     active
-                      ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-white"
-                      : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                      ? "bg-orange-100 text-orange-700"
+                      : "text-zinc-600 hover:bg-green-50 hover:text-green-700"
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -59,12 +70,12 @@ export default function Navbar() {
 
         <Link
           href="/checkout"
-          className="relative flex items-center gap-2 rounded-md bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+          className="brand-gradient relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02]"
         >
           <ShoppingCart className="h-4 w-4" />
           Carrito
           {totalItems > 0 && (
-            <span className="ml-0.5 rounded-full bg-emerald-500 px-1.5 text-xs font-bold text-white">
+            <span className="ml-0.5 rounded-full bg-white px-1.5 text-xs font-bold text-orange-600">
               {totalItems}
             </span>
           )}

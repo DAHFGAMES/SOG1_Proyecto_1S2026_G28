@@ -11,7 +11,6 @@ import {
   Search,
   ShoppingCart,
 } from "lucide-react";
-import { Badge } from "../components/Badge";
 import { Button } from "../components/Button";
 import { useCart, type CartProduct } from "../components/CartContext";
 
@@ -153,14 +152,23 @@ export default function ProductsPage() {
                   loading="lazy"
                   className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute left-3 top-3">
-                  <Badge tone="neutral">{p.default_code || "—"}</Badge>
-                </div>
+                {p.default_code && (
+                  <div className="absolute left-3 top-3">
+                    <span className="inline-flex items-center rounded-full bg-white/90 px-2 py-0.5 text-xs font-mono font-semibold text-zinc-700 shadow-sm backdrop-blur">
+                      {p.default_code}
+                    </span>
+                  </div>
+                )}
                 <div className="absolute right-3 top-3">
                   {p.qty_available > 0 ? (
-                    <Badge tone="success">Stock: {p.qty_available}</Badge>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-600 px-2.5 py-1 text-xs font-bold text-white shadow-md">
+                      <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                      {p.qty_available} en stock
+                    </span>
                   ) : (
-                    <Badge tone="danger">Agotado</Badge>
+                    <span className="inline-flex items-center rounded-full bg-red-600 px-2.5 py-1 text-xs font-bold text-white shadow-md">
+                      Agotado
+                    </span>
                   )}
                 </div>
               </div>

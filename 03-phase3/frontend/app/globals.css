@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
+/* Desactiva el dark mode automático por prefers-color-scheme.
+   Las variantes dark: solo se aplicarán si algún ancestro tiene la clase .dark. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #fffaf3;
+  --foreground: #1c1917;
+  --brand-orange: #f97316;
+  --brand-orange-dark: #ea580c;
+  --brand-green: #16a34a;
+  --brand-green-dark: #15803d;
 }
 
 @theme inline {
@@ -12,15 +21,33 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background:
+    radial-gradient(60rem 40rem at 110% -10%, rgba(249, 115, 22, 0.10), transparent 60%),
+    radial-gradient(50rem 35rem at -10% 110%, rgba(22, 163, 74, 0.10), transparent 60%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Arial, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.brand-gradient {
+  background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-green) 100%);
+}
+
+.brand-text-gradient {
+  background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-green) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body {
+    background: #ffffff !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+  }
 }

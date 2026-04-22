@@ -5,6 +5,7 @@ import {
   executeKw,
   executeKwWithContext,
   searchRead,
+  sendMailTemplate,
 } from "@/lib/odoo";
 
 /**
@@ -96,7 +97,24 @@ export async function POST(request: NextRequest) {
       ["id", "name", "amount_total", "amount_residual", "state"]
     );
 
-    return Response.json({ success: true, invoices });
+    // Enviar cada factura al email del cliente usando la plantilla estándar.
+    // Se hace solo para facturas publicadas (state='posted'): Odoo no permite
+    // enviar borradores por mail template.
+    let emailSent = false;
+    for (const inv of invoices as { id: number; state: string }[]) {
+      if (inv.state !== "posted") continue;
+      try {
+        const ok = await sendMailTemplate(
+          "account.email_template_edi_invoice",
+          inv.id
+        );
+        if (ok) emailSent = true;
+      } catch {
+        // Silencioso: si SMTP no está configurado, el mail queda en cola.
+      }
+    }
+
+    return Response.json({ success: true, invoices, email_sent: emailSent });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     return Response.json({ error: message }, { status: 500 });

@@ -61,7 +61,7 @@ export default function RegisterPage() {
       <Card>
         <CardHeader
           title="Crear cuenta"
-          subtitle="Registro como cliente en Odoo"
+          subtitle="Regístrate para comprar y cotizar más rápido"
           icon={<UserPlus className="h-4 w-4" />}
         />
         <CardBody>

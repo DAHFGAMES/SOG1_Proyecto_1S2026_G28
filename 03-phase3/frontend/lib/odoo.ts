@@ -155,6 +155,49 @@ export async function callMethod<T = unknown>(
   return executeKw<T>(model, method, [ids], kwargs);
 }
 
+/**
+ * Resuelve un XML ID (`module.name`) al res_id del registro referenciado.
+ * Útil para encontrar plantillas de email estándar de Odoo.
+ */
+export async function xmlIdToResId(
+  module: string,
+  name: string
+): Promise<number | null> {
+  const rows = await searchRead<{ res_id: number }>(
+    "ir.model.data",
+    [
+      ["module", "=", module],
+      ["name", "=", name],
+    ],
+    ["res_id"],
+    { limit: 1 }
+  );
+  return rows[0]?.res_id ?? null;
+}
+
+/**
+ * Envía un email usando una plantilla `mail.template` identificada por XML ID
+ * (ej. "sale.email_template_edi_sale" o "account.email_template_edi_invoice").
+ * Devuelve true si se programó el envío, false si la plantilla no existe.
+ *
+ * `force_send: true` intenta enviar al instante vía el servidor SMTP configurado
+ * en Odoo (ir.mail_server). Si no hay SMTP, el email queda en cola (mail.mail).
+ */
+export async function sendMailTemplate(
+  xmlid: string,
+  resId: number,
+  opts: { forceSend?: boolean } = {}
+): Promise<boolean> {
+  const [module, name] = xmlid.split(".");
+  if (!module || !name) return false;
+  const tmplId = await xmlIdToResId(module, name);
+  if (!tmplId) return false;
+  await executeKw("mail.template", "send_mail", [tmplId, resId], {
+    force_send: opts.forceSend ?? true,
+  });
+  return true;
+}
+
 export const odoo = {
   authenticate,
   executeKw,

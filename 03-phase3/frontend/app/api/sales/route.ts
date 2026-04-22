@@ -1,5 +1,12 @@
 import { NextRequest } from "next/server";
-import { callMethod, create, executeKw, searchRead } from "@/lib/odoo";
+import {
+  callMethod,
+  create,
+  executeKw,
+  searchRead,
+  sendMailTemplate,
+  write,
+} from "@/lib/odoo";
 
 /** GET /api/sales -> listado de órdenes/cotizaciones */
 export async function GET(request: NextRequest) {
@@ -123,7 +130,27 @@ export async function POST(request: NextRequest) {
       await callMethod("sale.order", "action_confirm", [orderId]);
     }
 
-    return Response.json({ success: true, order_id: orderId });
+    // Si es una cotización (no confirmada), enviarla por email al cliente.
+    // Para compras confirmadas, el email relevante es el de la factura,
+    // que se envía desde /api/invoices tras publicarla.
+    let emailSent = false;
+    if (!confirm) {
+      try {
+        emailSent = await sendMailTemplate(
+          "sale.email_template_edi_sale",
+          orderId
+        );
+        if (emailSent) {
+          // Marca la cotización como "enviada" (state='sent').
+          await write("sale.order", [orderId], { state: "sent" });
+        }
+      } catch {
+        // No bloquear la respuesta si el envío falla (SMTP no configurado, etc.).
+        emailSent = false;
+      }
+    }
+
+    return Response.json({ success: true, order_id: orderId, email_sent: emailSent });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     return Response.json({ error: message }, { status: 500 });
